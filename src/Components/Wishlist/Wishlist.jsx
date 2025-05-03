@@ -1,43 +1,39 @@
-import React, { useContext } from "react";
-import { booksDataContext } from "../LandingPage/LandingPage";
-// import { clickcardContext } from "../LandingPage/LandingPage";
-const Book2 = () => {
-  const books = useContext(booksDataContext);
-  //    const [click, setclick] = useContext(clickcardContext);
+import React from "react";
+import { Link } from "react-router";
+const Wishlist = ({book ,setdelwishbook}) => {
 
+   
   return (
     <div>
-      {books.map((book) => {
-        return (
+ 
           <div className="flex border-1 border-gray-200 mb-5 rounded-2xl drop-shadow-md">
-            <div className="bg-[#d9d9d9] m-2 rounded-2xl w-2/12 mr-6 ">
+            <div className="bg-[#d9d9d9] m-2 rounded-2xl xl:w-2/12 w-3/12 xl:mr-6  mr-1">
               <img
                 src={book.image}
                 alt="Shoes"
-                className="h-44 w-32 mx-11 my-7  "
+                className="xl:h-44  h-28 w-20 xl:w-32 xl:mx-11 mx-2 xl:my-7  my-24"
               />
             </div>
-            <div className=" w-10/12 pl-5 space-y-4">
-            <div className="space-y-4">
-            <h2 className="font-bold text-xl playfair-display w-full ">
-                {book.bookName}
-              </h2>
-              <h2 className="font-medium text-base text-[#4f4e4e] w-full ">
-                By: {book.author}
-              </h2>
-            </div>
-             
+            <div className=" xl:w-10/12 w-9/12 pl-5 space-y-4">
+              <div className="space-y-4">
+                <h2 className="font-bold text-xl playfair-display w-full ">
+                  {book.bookName}
+                </h2>
+                <h2 className="font-medium text-base text-[#4f4e4e] w-full ">
+                  By: {book.author}
+                </h2>
+              </div>
 
-              <div className="flex">
-                <p >
+              <div className="xl:flex">
+                <p className="xl:mb-0 mb-2">
                   <span className="mr-4">Tag</span>
                   {book.tags.map((tag) => {
                     return (
-                      <button className="btn text-[#23BE0A] rounded-2xl mr-4">
+                      <button className="btn text-[#23BE0A] rounded-2xl xl:mr-4">
                         #{tag}
                       </button>
                     );
-                  })}{" "}
+                  })}
                 </p>
                 <span className="flex items-center justify-center">
                   <svg
@@ -63,7 +59,7 @@ const Book2 = () => {
                 </span>
               </div>
 
-              <div className="flex">
+              <div className="xl:flex">
                 <div className="flex mr-6 space-x-5">
                   <span>
                     <svg
@@ -105,22 +101,30 @@ const Book2 = () => {
                 </div>
               </div>
 
-         <div className="border-1 border-dashed border-gray-200">
-</div>
+              <div className="border-1 border-dashed border-gray-200"></div>
 
-              <div className="space-x-5">
-                <button className="btn btn-soft btn-info rounded-4xl">Category: {book.category}</button>
-                <button className="btn btn-soft btn-warning rounded-4xl">Rating: {book.rating}</button>
-                <button className="btn btn-success text-white rounded-4xl">
-                  View Details
+              <div className="xl:space-x-5 mb-3 xl:flex  ">
+              
+                <button className="btn btn-soft btn-info rounded-4xl mr-2 xl:mr-0">
+                  Category: {book.category}
                 </button>
+                <button className="btn btn-soft btn-warning rounded-4xl xl:mb-0 mb-2 ">
+                  Rating: {book.rating}
+                </button>
+               
+
+                <Link to={`/description/${book.bookId}`}>
+                  <button className="btn btn-success text-white rounded-4xl mr-2 xl:mr-0">
+                    View Details
+                  </button>
+                </Link>
+                <button className="btn btn-success rounded-4xl text-white" onClick={setdelwishbook(book.bookId)} >Delect Wishlist </button>
               </div>
             </div>
           </div>
-        );
-      })}
+       
     </div>
   );
 };
 
-export default Book2;
+export default Wishlist;
