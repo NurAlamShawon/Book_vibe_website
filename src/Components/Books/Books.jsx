@@ -10,11 +10,11 @@ const Books = () => {
       <h1 className="text-4xl font-bold playfair-display text-center mb-9">
         Books
       </h1>
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 ">
         {books.map((book) => {
           return (
             <Link to={`/description/${book.bookId}`}>
-              <div className="card bg-base-100 w-96 shadow-sm rounded-xl">
+              <div className="card bg-base-100 w-96 shadow-sm rounded-xl mx-auto">
                 <figure className="bg-[#d9d9d9] m-2 rounded-2xl">
                   <img
                     src={book.image}
