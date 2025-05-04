@@ -1,15 +1,12 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { booksDataContext } from "../LandingPage/LandingPage";
 import { useParams } from "react-router";
-import { setwishbookitems, setbookitems } from "../../Utilities/Utilities"
-import { ToastContainer, toast } from 'react-toastify';
+import { setwishbookitems, setbookitems } from "../../Utilities/Utilities";
+import { ToastContainer, toast } from "react-toastify";
 const Description = () => {
-   const [checkbookcount,setcheckbookcount]=useState(0);
+  const [checkbookcount, setcheckbookcount] = useState([]);
 
-   const [checkwishcount,setcheckwishcount]=useState(0);
-
-
-
+  const [checkwishcount, setcheckwishcount] = useState([]);
 
   const books = useContext(booksDataContext);
   const params = useParams();
@@ -17,36 +14,33 @@ const Description = () => {
 
   const click = books.find((book) => book.bookId == id);
 
-
   // add to wishlist function
 
   const addWishlist = (bookid) => {
-    setwishbookitems(bookid);
-
-    if(checkbookcount==0){
-      toast("You have added book to read!");
-      const newcheck =checkbookcount+1;
-      setcheckbookcount(newcheck);
-      
+    console.log(checkwishcount)
+    const validcount = checkwishcount.find((count) => count == bookid);
+    console.log(validcount)
+    if (!validcount) {
+      toast("You have added book to wishlist!");
+      const newcheck = [...checkwishcount, bookid];
+      setcheckwishcount(newcheck);
     }
 
-
-
+    setwishbookitems(bookid);
   };
 
-
-
   const addreadlist = (bookid) => {
-    setbookitems(bookid);
+    console.log(checkbookcount)
+    const validcount = checkbookcount.find((count) => count == bookid);
+    console.log(validcount)
 
-    if(checkwishcount==0){
+    if (!validcount) {
       toast("You have added book to read!");
-      const newcheck =checkwishcount+1;
-      setcheckwishcount(newcheck);
-      
+      const newcheck = [...checkbookcount, bookid];
+      setcheckbookcount(newcheck);
     }
 
-
+    setbookitems(bookid);
   };
 
   return (
@@ -127,19 +121,18 @@ const Description = () => {
             </table>
           </div>
           <div className="flex justify-start items-center ml-3">
-            <button class="btn mr-4"
-            onClick={() => {
-              addreadlist(click.bookId);
-              
-            }}
-            
-            
-            >Read</button>
+            <button
+              class="btn mr-4"
+              onClick={() => {
+                addreadlist(click.bookId);
+              }}
+            >
+              Read
+            </button>
             <button
               className="btn btn-info text-white"
               onClick={() => {
                 addWishlist(click.bookId);
-               
               }}
             >
               Wishlist
