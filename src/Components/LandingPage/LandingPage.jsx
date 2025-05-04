@@ -5,11 +5,11 @@ import Footer from "../Footer/Footer";
 
 export const booksDataContext = createContext(null);
 
-export const clickcardContext = createContext([]);
+
 
 const LandingPage = () => {
   const [books, setBooks] = useState([]);
-  const [click, setclick] = useState([]);
+
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -29,9 +29,9 @@ const LandingPage = () => {
 
       <main>
         <booksDataContext.Provider value={books}>
-          <clickcardContext.Provider value={[click, setclick]}>
+       
             <Outlet></Outlet>
-          </clickcardContext.Provider>
+        
         </booksDataContext.Provider>
       </main>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-const Wishlist = ({book ,setdelwishbook}) => {
+const Wishlist = ({book ,delwishlist}) => {
 
    
   return (
@@ -118,7 +118,7 @@ const Wishlist = ({book ,setdelwishbook}) => {
                     View Details
                   </button>
                 </Link>
-                <button className="btn btn-success rounded-4xl text-white" onClick={setdelwishbook(book.bookId)} >Delect Wishlist </button>
+                <button className="btn btn-success rounded-4xl text-white" onClick={()=>{delwishlist(book.bookId)}} >Delect Wishlist </button>
               </div>
             </div>
           </div>

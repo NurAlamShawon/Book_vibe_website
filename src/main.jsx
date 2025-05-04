@@ -5,11 +5,10 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Herosection from "./Components/Herosection/Herosection.jsx";
 import Listedbook from "./Components/Listed-book/Listedbook.jsx";
-import PageToRead from "./Components/Page-to-read/PageToRead.jsx";
+
 import LandingPage from "./Components/LandingPage/LandingPage.jsx";
 import Description from "./Components/Description/Description.jsx";
-import Wishlist from "./Components/Wishlist/Wishlist.jsx";
-import Readbook from "./Components/Readbook/Readbook.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -18,7 +17,6 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Herosection },
       { path: "/listed-book", Component: Listedbook },
-      { path: "/page-to-read", Component: PageToRead },
       {path: `/description/:bookId`,Component: Description,},
     ],
   },

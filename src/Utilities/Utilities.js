@@ -1,5 +1,7 @@
 import Swal from "sweetalert2";
 
+
+
 const showAlert = () => {
   Swal.fire({
     title: "<strong>You have already added this book to wish</strong>",
@@ -12,6 +14,7 @@ const showAlert = () => {
         <i class="fa fa-thumbs-up"></i> Great!
       `,
   });
+
 };
 
 const showAlert1 = () => {
@@ -26,6 +29,7 @@ const showAlert1 = () => {
           <i class="fa fa-thumbs-up"></i> Great!
         `,
     });
+
   };
 
 
@@ -109,4 +113,4 @@ const getbookitems = () => {
 
 
 
-export { getbookitems, setbookitems, removebook ,getwishbookitems, setwishbookitems, removewishbook  };
+export { getbookitems, setbookitems, removebook ,getwishbookitems, setwishbookitems, removewishbook   };

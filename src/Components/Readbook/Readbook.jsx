@@ -1,12 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-
-const Readbook = ({ book ,setdelbook}) => {
-
-
-
-
+const Readbook = ({ book, delreadbook }) => {
   return (
     <div>
       <div className="flex border-1 border-gray-200 mb-5 rounded-2xl drop-shadow-md">
@@ -121,9 +116,9 @@ const Readbook = ({ book ,setdelbook}) => {
             </Link>
             <button
               className="btn btn-success rounded-4xl text-white"
-           onClick={setdelbook(book.bookId)}
+              onClick={() => delreadbook(book.bookId)} // ← GOOD
             >
-              Delect Read Book
+              Delete Read Book
             </button>
           </div>
         </div>

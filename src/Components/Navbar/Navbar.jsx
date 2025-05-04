@@ -40,13 +40,7 @@ const Navbar = () => {
                
               </NavLink>
             </li>
-            <li>
-              <NavLink to={"page-to-read"} className="btn ">
-                
-                  Page to Read
-              
-              </NavLink>
-            </li>
+            
           </ul>
         </div>
         <a className="btn btn-ghost text-2xl font-bold">BookVibe</a>
@@ -65,13 +59,7 @@ const Navbar = () => {
                
               </NavLink>
             </li>
-            <li>
-              <NavLink to={"page-to-read"} className="btn ">
-                
-                  Page to Read
-              
-              </NavLink>
-            </li>
+           
         </ul>
       </div>
       <div className="navbar-end">
